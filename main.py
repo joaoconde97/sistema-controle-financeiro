@@ -17,6 +17,11 @@ def pedir_valor():
     while True:
         try:
             valor = float(input("Digite o valor: "))
+
+            if valor < 0:
+                print("O valor precisa ser maior que zero.")
+                continue
+
             return valor
         
         except ValueError:
@@ -32,7 +37,23 @@ def adicionar_registros(registros, tipo):
         "descricao" : descricao
     }
 
-    registros.append(registro)
+    print(f"Tipo: {tipo}")
+    print(f"Valor: {valor}")
+    print(f"Descrição: {descricao}")
+
+    confirmacao = input("Confirmar (s/n)? ")
+    
+    if confirmacao.lower().strip() == "s":
+        registros.append(registro)
+        return registros
+    
+    elif confirmacao.lower().strip() == "n":
+        print("Registro cancelado.")
+        return registros
+
+    else:
+        print("Opção inválida, tente novamente!")
+        return registros
 
 registros = []
 
@@ -66,3 +87,4 @@ while True:
         print()
         print("Opção Inválida, tente novamente!")
         print()
+
