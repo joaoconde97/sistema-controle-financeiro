@@ -1,0 +1,12 @@
+[
+    {
+        "tipo": "receita",
+        "valor": 235.0,
+        "descricao": "Ifood"
+    },
+    {
+        "tipo": "receita",
+        "valor": 456.0,
+        "descricao": "Uber"
+    }
+]
