@@ -1,5 +1,7 @@
 import json
 
+local_arquivo = "C:\\Users\joaot\Documents\Estudos\Controle-financeiro\\registros.json"
+
 def asteriscos():
     print(30 * "*")
 
@@ -61,17 +63,31 @@ def adicionar_registros(registros, tipo):
         return registros
 
 def salvar_registros(registros):
-    local_arquivo = "C:\\Users\joaot\Documents\Estudos\Controle-financeiro\\registros.json"
     with open(local_arquivo,"w")as arquivo:
         json.dump(registros, arquivo, indent=4)
 
 def carregar_registros():
     try:
-        with open("registros.json", "r")as arquivo:
+        with open(local_arquivo, "r")as arquivo:
             return json.load(arquivo)
 
     except (FileNotFoundError, json.JSONDecodeError):
         return []
+
+def mostrar_historico(registros):
+    
+    if not registros:
+        print("Registros vazios.")
+    
+    else:
+        asteriscos()
+        print("HISTÓRICO DE REGISTROS")
+        asteriscos()
+        for item in registros:
+            print(f"Tipo: {item["tipo"]}")
+            print(f"Valor: {item["valor"]}")
+            print(f"Descrição: {item["descricao"]}")
+            asteriscos()
 
 def main():
     registros = carregar_registros()
@@ -93,7 +109,7 @@ def main():
             elif opcao == "3":
                 print("Voce escolheu 3")
             elif opcao == "4":
-                print("Voce escolheu 4")
+                mostrar_historico(registros)
             elif opcao == "5":
                 print("\n Encerrando programa... \n")
                 break

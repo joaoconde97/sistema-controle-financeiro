@@ -1,12 +1,12 @@
 [
     {
         "tipo": "receita",
-        "valor": 235.0,
-        "descricao": "Ifood"
+        "valor": 1000.0,
+        "descricao": "uber"
     },
     {
-        "tipo": "receita",
-        "valor": 456.0,
-        "descricao": "Uber"
+        "tipo": "despesa",
+        "valor": 230.0,
+        "descricao": "ifood"
     }
 ]
